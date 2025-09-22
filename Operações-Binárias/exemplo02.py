@@ -17,5 +17,5 @@ else:
 
 
    for octeto in lstOctetos:
-      if not octeto.isdigit() or not (0 <= int(octeto) >= 255):
+      if not octeto.isdigit() or not (0 <= int(octeto) <= 255):
            
