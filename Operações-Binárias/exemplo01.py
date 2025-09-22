@@ -10,5 +10,15 @@ except Exception as erro:
     sys.exit(f'Erro inesperado: {erro}')
 else:
 
-    print(f'\n {intvalor} em Binário.....: {bin(intvalor)}\n')
+    if intvalor < 0:
+        sys.exit('Informe um valor inteiro positivo:')
 
+    intQtbits = intvalor.bit_length()
+#converte para binário retirando '0b'
+    binvalor = bin(intvalor)[2:]
+
+    if len(binvalor) % 8 != 0:
+
+        intzeros = 8 - len(binvalor)
+#exibir a saída
+    print(f'\n {intvalor} em Binário.....: 0b{binvalor}\n')
