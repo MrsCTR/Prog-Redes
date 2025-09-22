@@ -12,4 +12,10 @@ else:
 
    lstOctetos = strIP.split('.')
 
-   if 
+   if len(lstOctetos) != 4:
+       sys.exit('\n Erro: Formato IP inválido. Deve conter 4 octetos\n')
+
+
+   for octeto in lstOctetos:
+      if not octeto.isdigit() or not (0 <= int(octeto) >= 255):
+           
