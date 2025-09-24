@@ -1,20 +1,21 @@
+import sys
 
-binNumA = bin(intNumA)
-binNumB = bin(intNumB)
-
-resultadoAND = int(binNumA) & int(binNumB)
-
-print(f'\nNúmero A: {bin(intNumA):>16} ({int(bin(intNumA), 2)})\n')
-print(f'\nNúmero B: {bin(intNumB):>16} ({int(bin(intNumB), 2)})\n')
-print(f'\n AND: {bin(resultadoAND):>16} ({int(intNumA, 2)})\n')
-
-#-------------------------------------------------------------
+import funcoes
 
 
-binNumA = bin(150)
-binNumB = bin(120)
+try:
+   intValor = int(input('\nDigite um número inteiro: '))
+except ValueError:
+   sys.exit('\nERRO: Valor inválido. Por favor, insira um número inteiro...\n')
+except KeyboardInterrupt:
+   sys.exit('\nAVISO: Programa interrompido pelo usuário...\n')
+except Exception as erro:
+   sys.exit(f'\nERRO INESPERADO: {erro}...\n')
+else:
+   if intValor < 0:
+      sys.exit('\nERRO: Por favor, insira um número inteiro não negativo...\n')
 
+   binValor = funcoes.dec2bin(intValor)
 
-print(f'\nNúmero A: {binNumA:>16} ({int(binNumA, 2)})\n')
-print(f'\nNúmero B: {binNumB:>16} ({int(binNumB, 2)})\n')
-print(f'\n AND: {resultadoAND:>16} ({int(binNumA, 2)})\n')
+   # Exibir a saída
+   print(f'\n{intValor} em Binário....: {binValor}\n')
