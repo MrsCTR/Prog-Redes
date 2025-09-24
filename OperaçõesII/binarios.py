@@ -1,4 +1,4 @@
-strIP = '255.255.255.0' #'192.168.1.10'
+strIP = '192.168.1.10'
 # --------------------------------------------------
 # Gerando uma lista com 4 posições
 # Cada posição é o inteiro correspondente a cada octeto do IP
