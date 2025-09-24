@@ -1,4 +1,4 @@
-strIP = '192.168.1.10'
+strIP = '255.255.255.0' #'192.168.1.10'
 # --------------------------------------------------
 # Gerando uma lista com 4 posições
 # Cada posição é o inteiro correspondente a cada octeto do IP
@@ -8,11 +8,8 @@ print(lstIP)
 # --------------------------------------------------
 # Convertendo a lista em bytes, onde cada posição da 
 # lista vira um byte
-binIP = bytes(lstIP)
-
-print(binIP)
-
-# Será impresso -> b'\xc0\xa8\x01\n'
-
-
-#intCIDR = 24 #255.255.255.0
+bytesIP = bytes(lstIP)
+print(bytesIP) # Será impresso -> b'\xc0\xa8\x01\n'
+#------------------------------------------------------
+intIP = int.from_bytes(bytes(lstIP), byteorder='big')
+print(intIP) # Será impresso -> 3232235786 (3.232.235.786)
