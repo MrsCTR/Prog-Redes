@@ -1,17 +1,13 @@
-strIP = '192.168.1.10'
-intCIDR = 24
-intIP = int.from_bytes(bytes([int(x) for x in strIP.split('.')]) ,'big')
-intMask = 0xFFFFFFFF >> (32 - intCIDR) << (32 - intCIDR)
-intIP_Rede = intIP & intMask 
-print(intIP_Rede) # imprime 3232235776(3.232.235.776)
-
+# Letra B
+# Calculando endereço de rede usando (AND)
+# Entre IPv4 e máscara Sub-rede
 '''
    Exemplo 03 -  Calculando do endereço de rede a partir de um IP e CIDR
 '''
 # Define a variável 'strIP' com o endereço IP em formato de string 
 # ('xxx.xxx.xxx.xxx')
-strIP   = '192.168.1.10'
-print(f'O Endereço IPv4 é...........................: {strIP}\n')
+IPv4   = '192.168.1.10'
+print(f'O Endereço IPv4 é...........................: {IPv4}\n')
 
 # Define a variável 'intCIDR' com o valor 24, que representa a quantidade 
 # de bits da máscara de sub-rede (CIDR)
@@ -22,7 +18,7 @@ print(f'Valor CIDR (bits na máscara)................: /{intCIDR}\n')
 # 'big-endian'. A função 'int.from_bytes()' converte a sequência de bytes 
 # gerada a partir do IP (convertido para inteiros) para um número inteiro, 
 # respeitando a ordem 'big-endian' (byte mais significativo primeiro).
-intIP      = int.from_bytes(bytes([int(x) for x in strIP.split('.')]), 'big')
+intIP      = int.from_bytes(bytes([int(x) for x in IPv4.split('.')]), 'big')
 print(f'O Endereço IPv4 em binário é (32 bits)......: {intIP:032b}\n')  
 
 # Calcula a máscara de sub-rede com base no valor de 'intCIDR', deslocando 
