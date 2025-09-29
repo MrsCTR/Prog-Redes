@@ -1,11 +1,8 @@
 # Letra B
 # Calculando endereço de rede usando (AND)
 # Entre IPv4 e máscara Sub-rede
-'''
-   Exemplo 03 -  Calculando do endereço de rede a partir de um IP e CIDR
-'''
 # Define a variável 'strIP' com o endereço IP em formato de string 
-# ('xxx.xxx.xxx.xxx')
+
 IPv4   = '192.168.1.10'
 print(f'O Endereço IPv4 é...........................: {IPv4}\n')
 
