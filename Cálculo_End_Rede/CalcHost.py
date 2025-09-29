@@ -1,5 +1,7 @@
-# Letra B
-# Calculando endereço de rede usando (AND)
+# Letra C
+# Calculando primeiro Host de rede
+# Entre IPv4 e máscara Sub-rede
+# Define a variável 'strIP' com o endereço IP em formato de string 
 
 IPv4   = '192.168.1.10'
 print(f'O Endereço IPv4 é...........................: {IPv4}\n')
@@ -33,6 +35,3 @@ print(f'Endereço IPv4 da Rede em binário é (32 bits): {intIPRede:032b}\n')
 # A função 'to_bytes(4)' converte o inteiro de volta para uma sequência de 4 bytes.
 strIPRede = '.'.join([str(x) for x in intIPRede.to_bytes(4)])
 print(f'O Endereço IPv4 da Rede é...................: {strIPRede}\n')
-
-#1º Host
-intprimHost = intIPRede | 0x0000001
