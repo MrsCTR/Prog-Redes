@@ -20,3 +20,4 @@ for n in range(10, Lim_Superior + 1):
     while Num_Temporario > 0:
         Digito = Num_Temporario % 10
         Soma_Fatoriais += Fatoriais [Digito]
+
