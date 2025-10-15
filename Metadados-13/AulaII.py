@@ -16,7 +16,7 @@ import sys
 # TAG_NUMBER e DATA_FORMAT, que mapeiam os códigos numéricos dos metadados para
 # nomes e tipos legíveis por humanos.
 # Exemplo: TAG_NUMBER = { 0x0110: 'Model', 0x010F: 'Make', ... }
-from metadados_contantes import *
+from metadados_constantes import *
 
 # ------------------------------------------------------------------------------------------
 # Variáveis e Constantes Globais
