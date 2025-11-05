@@ -1,4 +1,6 @@
-import requests
+import requests, os
+
+strDirApp = os.path.dirname(__file__)
 
 # Definindo a URL para requisição
 strURL = 'http://www.globo.com'
@@ -17,5 +19,17 @@ except Exception as e:
    print(f'\nERRO: {e}\n')
 
 else:
-   
-   
+   print('\nStatus Line da Resposta')
+   print(f'\nStatus HTTP: {response.status_code} -> {response.reason}') #Exibição do status da resposta (status line)
+
+#Exibição do headers da resposta (HTTP Headers)
+   print(f'\nHeaders da Resposta')
+   print(response.headers)
+
+#Exibição do conteúdo da resposta (content)
+   print(f'\nContent da Resposta')
+   print(response.content)
+
+   arqSaida = open(f'{strDirApp}// Content.txt', 'wb')
+   arqSaida.write(response.content)
+   arqSaida.close()
