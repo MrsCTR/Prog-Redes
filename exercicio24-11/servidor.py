@@ -1,7 +1,7 @@
 import socket
 
 # ----------------------------------------------------------------------
-HOST_IP_SERVER  = ''  # Definindo o IP do servidor
+HOST_IP_SERVER  = '' #'10.25.1.116' # Definindo o IP do servidor
 HOST_PORT       = 50000           # Definindo a porta
 
 BUFFER_SIZE     = 512             # Tamanho do buffer
@@ -31,10 +31,15 @@ try:
        except socket.timeout:
            continue
        else: # Obtendo nome do Host
-          strHostName = socket.gethostbyaddr(tuplaCliente[0])[0]
-          strHostName = strHostName.split('.')[0].upper()
+          strHostName = socket.gethostbyaddr(tuplaCliente[0])[0].split('.')[0].upper()
+
         # Imprimindo a mensagem recebida convertendo de bytes para string
-          print(f'{tuplaCliente} -> {strHostName}: {byteMensagem.decode(CODE_PAGE)}')
+          strMensagem = byteMensagem.decode(CODE_PAGE)
+          print(f'{tuplaCliente} -> {strHostName}: {strMensagem}')
+
+        # Devolvendo mensagem ao cliente 
+          sockServer.sendto(strMensagem[::-1].encode(CODE_PAGE), tuplaCliente)
+
 except KeyboardInterrupt:
     print('\nAVISO: Foi pressionado CTRL+C...\nSaindo do servidor')
 finally:

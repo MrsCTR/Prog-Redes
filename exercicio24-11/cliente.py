@@ -2,10 +2,13 @@
 import socket
 
 # ----------------------------------------------------------------------
-HOST_IP_SERVER = '10.25.1.9' # Definindo o IP do servidor
-HOST_PORT       = 50000                    # Definindo a porta
-CODE_PAGE       = 'utf-8'                  # Definindo a página de 
-                                           # codificação de caracteres
+HOST_IP_SERVER = '' #'10.25.1.116'   # Definindo o IP do servidor
+HOST_PORT       = 50000             # Definindo a porta
+TUPLA_SERVER = (HOST_IP_SERVER, HOST_PORT)
+
+BUFFER_SIZE     = 512               # Tamanho do buffer
+CODE_PAGE       = 'utf-8'           # Definindo a página de 
+                                    # codificação de caracteres
 # ----------------------------------------------------------------------
 
 # Criando o socket (socket.AF_INET -> IPV4 / socket.SOCK_DGRAM -> UDP)
@@ -20,11 +23,15 @@ while True:
    # Saindo do Cliente quando digitar SAIR
    if strMensagem.lower().strip() == 'sair': break
 
-   # Convertendo a mensagem em bytes
-   bytesMensagem = strMensagem.encode(CODE_PAGE) 
+
+   bytesMensagem = str(len(strMensagem)).encode(CODE_PAGE)
+   sockClient.sendto(strMensagem.encode(CODE_PAGE), (TUPLA_SERVER))
 
    # Enviando a mensagem ao servidor      
-   sockClient.sendto(bytesMensagem, (HOST_IP_SERVER, HOST_PORT))
+   sockClient.sendto(strMensagem.encode(CODE_PAGE), (TUPLA_SERVER))
+   
+   # Recebendo mensagem do servidor
+   bytesMensagem = sockClient.recvfrom(BUFFER_SIZE)
 
 # Fechando o socket
 sockClient.close()
