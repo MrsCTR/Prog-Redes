@@ -12,8 +12,7 @@ BUFFER_SIZE    = 512         # Tamanho do buffer
 
 CODE_PAGE      = 'utf-8'     # Definindo a página de codificação de caracteres
 
-# Diretório das imagens no servidor
-DIR_SERVER =  os.path.dirname(__file__) + '\\imagens\\'
+DIR_SERVER =  os.path.dirname(__file__) + '\\imagens\\' # Diretório das imagens no servidor
+
+COMANDOS_SERVER = [ '\\?', '\\f'] # Comandos válidos no servidor
 # ----------------------------------------------------------------------
-# Comandos válidos no servidor
-COMANDOS_SERVER = [ '\\?', '\\f']
