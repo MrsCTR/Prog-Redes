@@ -46,7 +46,7 @@ while True:
 sockClient.close()
 
 #------------------------------------------------------------------
-# servidor_arquivo_buffer10.py
+# Servidor_Arquivo
 import socket
 import os
 
