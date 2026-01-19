@@ -1,4 +1,4 @@
-import os, sys, requests, platform
+import sys, requests
 
 '''
     Deve ser criado um arquivo com o nome token_bot.py
