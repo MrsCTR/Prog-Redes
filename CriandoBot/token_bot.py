@@ -1,0 +1,3 @@
+import os, sys, requests, platform
+
+API_TOKEN = '5671451820:AAEVNIh8tQgpOXxYCMMoJMbOdqH5P-43S-0'
