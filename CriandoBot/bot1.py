@@ -49,6 +49,3 @@ while True:
    # Exibe as mensagens recebidas
    print(f'{jsonRetorno}')
    print('-'*100+'\n')
-
-   # Como fazer para exibir apenas a última mensagem recebida ?????
-   
