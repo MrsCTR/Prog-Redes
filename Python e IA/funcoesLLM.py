@@ -1,5 +1,5 @@
 import requests
-import tokens_llm
+import tokensLLM
 
 # ----------------------------------------------------------------------
 def obterResultados (data: dict) -> str:
@@ -15,15 +15,15 @@ def obterResultados (data: dict) -> str:
 # ----------------------------------------------------------------------
 def solicitarServico (servico: str, prompt: str) -> str:
    try:
-      tokens_llm.DICT_HEADERS["Authorization"]          = f'Bearer {tokens_llm.DICT_SERVICES[servico]["token"]}'
-      tokens_llm.DICT_PAYLOAD["model"]                  = tokens_llm.DICT_SERVICES[servico]["model"]
-      tokens_llm.DICT_PAYLOAD["messages"][1]["content"] = prompt
+      tokensLLM.DICT_HEADERS["Authorization"]          = f'Bearer {tokensLLM.DICT_SERVICES[servico]["token"]}'
+      tokensLLM.DICT_PAYLOAD["model"]                  = tokensLLM.DICT_SERVICES[servico]["model"]
+      tokensLLM.DICT_PAYLOAD["messages"][1]["content"] = prompt
 
       reqEnvio = requests.post("https://"+ 
-                               tokens_llm.DICT_SERVICES[servico]["host"]+
-                               tokens_llm.DICT_SERVICES[servico]["endpoint"], 
-                               headers=tokens_llm.DICT_HEADERS, 
-                               json=tokens_llm.DICT_PAYLOAD)
+                               tokensLLM.DICT_SERVICES[servico]["host"]+
+                               tokensLLM.DICT_SERVICES[servico]["endpoint"], 
+                               headers=tokensLLM.DICT_HEADERS, 
+                               json=tokensLLM.DICT_PAYLOAD)
       
       reqEnvio.raise_for_status()
       data = reqEnvio.json()
@@ -34,12 +34,12 @@ def solicitarServico (servico: str, prompt: str) -> str:
 
 # ----------------------------------------------------------------------
 def selecionarServico() -> str:
-   for id, strServico in enumerate(tokens_llm.DICT_SERVICES):
+   for id, strServico in enumerate(tokensLLM.DICT_SERVICES):
       print (f"{id+1} - {strServico}")
 
    try:
       intServico = int(input("Informe o nº do serviço LLM: "))
-      strServico = tuple(tokens_llm.DICT_SERVICES.items())[intServico-1][0]
+      strServico = tuple(tokensLLM.DICT_SERVICES.items())[intServico-1][0]
    except ValueError:
       strServico = "gemini"
       print (f"ERRO: LLM inválida. Usando a LLM default: {strServico}")
