@@ -13,7 +13,7 @@
 
 # ----------------------------------------------------------------------
 # Tokens de acesso para os LLMs
-GEMINI_TOKEN   = "INFORME TOKEN GEMINI AQUI"
+GEMINI_TOKEN   = "AIzaSyDlKRqXwkXcuDIPcns_vpG-fp1XbYRWUCk"
 DEEPSEEK_TOKEN = "INFORME TOKEN DEEPSEEK AQUI"
 OPENAI_TOKEN   = "INFORME TOKEN OPENAI AQUI"
 
